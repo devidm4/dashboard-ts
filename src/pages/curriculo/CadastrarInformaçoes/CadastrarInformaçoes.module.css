@@ -52,3 +52,18 @@
     background-color: #ffffff;
     margin: 5px;
 }
+
+.button:hover {
+    background-color: #0069d9;
+  }
+
+.error{
+    border: 2px solid red;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}

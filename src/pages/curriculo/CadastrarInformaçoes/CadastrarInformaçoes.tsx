@@ -30,7 +30,7 @@ const CadastrarInformaçoes: React.FC = () => {
 
     });
 
-    const onSubmit = (values: FormValues,{ resetForm } : { resetForm: () => void }) => {
+    const onSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
         // Lógica de evnio para backend
         console.log(values);
         resetForm();
@@ -41,31 +41,59 @@ const CadastrarInformaçoes: React.FC = () => {
     return (
         <div className={styles.formWrapper}>
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                <form action="" className={styles.form}>
+                {({ errors, touched }) => (
+                    <Form className={styles.form}>
 
-                    <h2 className={styles.title}>Informações Pessoais</h2>
+                        <h2 className={styles.title}>Informações Pessoais</h2>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="foto" className={styles.label}>Foto:</label>
-                        <input type="text" name="foto" id="foto" className={styles.input} />
-                    </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="foto" className={styles.label}>Foto:</label>
+                            <Field
+                                type="text"
+                                name="foto"
+                                id="foto"
+                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`} 
+                            />
+                            <ErrorMessage name="foto" component="div" className={styles.errorMsg} />
+                        </fieldset>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="nome" className={styles.label}>Nome:</label>
-                        <input type="text" name="nome" id="nome" className={styles.input} />
-                    </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="nome" className={styles.label}>Nome:</label>
+                            <Field
+                                type="text"
+                                name="nome"
+                                id="nome"
+                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                            />
+                            <ErrorMessage name="nome" component="div" className={styles.errorMsg} />
+                        </fieldset>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="cargo" className={styles.label}>Cargo:</label>
-                        <input type="text" name="cargo" id="cargo" className={styles.input} />
-                    </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="cargo" className={styles.label}>Cargo:</label>
+                            <Field
+                                type="text"
+                                name="cargo"
+                                id="cargo"
+                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                            />
+                            <ErrorMessage name="cargo" component="div" className={styles.errorMsg} />
+                        </fieldset>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="resumo" className={styles.label}>Resumo:</label>
-                        <input type="text" name="resumo" id="resumo" className={styles.textarea} />
-                    </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="resumo" className={styles.label}>Resumo:</label>
+                            <Field
+                                type="text"
+                                name="resumo"
+                                id="resumo"
+                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                            />
+                            <ErrorMessage name="resumo" component="div" className={styles.errorMsg} />
+                        </fieldset>
 
-                </form>
+                        <button type="submit" className={styles.button}>Salvar</button>
+
+                    </Form>
+                )}
             </Formik>
         </div>
     );
