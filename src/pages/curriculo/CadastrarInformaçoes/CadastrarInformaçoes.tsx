@@ -26,7 +26,7 @@ const CadastrarInformaçoes: React.FC = () => {
         foto: Yup.string().required('campo obrigatório'),
         nome: Yup.string().required('campo obrigatório'),
         cargo: Yup.string().required('campo obrigatório'),
-        resumo: Yup.string().required('campo obrigatório'),
+        // resumo: Yup.string().required('campo obrigatório'),
 
     });
 
@@ -63,7 +63,7 @@ const CadastrarInformaçoes: React.FC = () => {
                                 type="text"
                                 name="nome"
                                 id="nome"
-                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                                className={`${styles.input} ${touched.nome && errors.nome && styles.error}`}
                             />
                             <ErrorMessage name="nome" component="div" className={styles.errorMsg} />
                         </fieldset>
@@ -74,7 +74,7 @@ const CadastrarInformaçoes: React.FC = () => {
                                 type="text"
                                 name="cargo"
                                 id="cargo"
-                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                                className={`${styles.input} ${touched.cargo && errors.cargo && styles.error}`}
                             />
                             <ErrorMessage name="cargo" component="div" className={styles.errorMsg} />
                         </fieldset>
@@ -82,10 +82,10 @@ const CadastrarInformaçoes: React.FC = () => {
                         <fieldset className={styles.formGroup}>
                             <label htmlFor="resumo" className={styles.label}>Resumo:</label>
                             <Field
-                                type="text"
+                                as="textarea"
                                 name="resumo"
                                 id="resumo"
-                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`}
+                                className={`${styles.input} ${touched.resumo && errors.resumo && styles.error}`}
                             />
                             <ErrorMessage name="resumo" component="div" className={styles.errorMsg} />
                         </fieldset>
