@@ -1,1 +1,1 @@
-export {default as CadastrarInformaçoes} from "./CadastrarInformaçoes"
+export {default} from "./CadastrarInformaçoes"
