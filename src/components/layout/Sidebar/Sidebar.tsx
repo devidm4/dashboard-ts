@@ -30,8 +30,8 @@ const Sidebar: React.FC = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/curriculo/experiencia/listagem" className={styles.active} >
-                            Cadastrar lista
+                        <NavLink to="/curriculo/experiencia/lista" className={styles.active} >
+                            Lista de Experiência
                         </NavLink>
                     </li>
                 </ul>
@@ -44,8 +44,8 @@ const Sidebar: React.FC = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/portfolio/listagem" className={styles.active} >
-                            Listagem de Portfolio
+                        <NavLink to="/portfolio/lista" className={styles.active} >
+                            Lista de Portfolio
                         </NavLink>
                     </li>
                 </ul>
