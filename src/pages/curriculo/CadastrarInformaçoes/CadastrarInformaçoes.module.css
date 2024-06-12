@@ -67,3 +67,12 @@
     margin-top: 5px;
     font-weight: bold;
 }
+
+.button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+    margin: 5px;
+    cursor: pointer;
+  }

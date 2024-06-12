@@ -8,6 +8,8 @@ import { Formik, Form } from "formik";
 
 import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
+import Select from "../../../components/forms/Select";
+
 
 interface FormValues {
     titulo: string;
@@ -68,6 +70,17 @@ const CadastrarExperiencia: React.FC = () => {
                         <Input
                             name="anoFim"
                             label="Ano Fim"
+                            errors={errors.anoFim}
+                            touched={touched.anoFim}
+                        />
+
+                        <Select
+                            name="tipo"
+                            label="Tipo de experiência"
+                            options={[
+                                { value: "Profissional", label: "Profissional" },
+                                { value: "Academico", label: "Acadêmico" },
+                            ]}
                             errors={errors.anoFim}
                             touched={touched.anoFim}
                         />

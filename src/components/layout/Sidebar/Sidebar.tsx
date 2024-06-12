@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
                 <ul>
                     <li>
                         <NavLink to="/curriculo/informaçoes/cadastro" className={styles.active} >
-                            Cadastro Informações
+                            Cadastrar Informações
                         </NavLink>
                     </li>
                     <li>
