@@ -7,20 +7,14 @@ import styles from "./CadastrarInformaçoes.module.css";
 
 import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
+import { Informacoes, createInformacoes } from "../../../services/InformacoesService";
 
-
-
-interface FormValues {
-    foto: string;
-    nome: string;
-    cargo: string;
-    resumo: string;
-}
 
 const CadastrarInformaçoes: React.FC = () => {
 
-    const initialValues: FormValues = {
-        foto: "",
+    const initialValues: Informacoes = {
+        id: 1,
+        foto: "",   
         nome: "",
         cargo: "",
         resumo: "",
@@ -34,11 +28,17 @@ const CadastrarInformaçoes: React.FC = () => {
 
     });
 
-    const onSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-        // Lógica de evnio para backend
-        console.log(values);
-        resetForm();
-        alert("Formulário enviado com sucesso!");
+    const onSubmit = async (values: Informacoes, { resetForm }: { resetForm: () => void }) => {
+        try{
+            await createInformacoes(values);
+            console.log(values);
+            resetForm();
+            alert("Formulário enviado com sucesso!");
+
+        }catch (error) {
+            console.error('erro ao enviar formulário:', error);
+            alert('Ocorreu um erro ao enviar o formulário. Tente novamente.');
+        }
     };
 
 

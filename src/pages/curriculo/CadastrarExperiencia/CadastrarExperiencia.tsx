@@ -79,7 +79,7 @@ const CadastrarExperiencia: React.FC = () => {
                             label="Tipo de experiência"
                             options={[
                                 { value: "Profissional", label: "Profissional" },
-                                { value: "Academico", label: "Acadêmico" },
+                                { value: "Academico", label: "Acadêmica" },
                             ]}
                             errors={errors.anoFim}
                             touched={touched.anoFim}
