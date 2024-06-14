@@ -7,7 +7,7 @@ import styles from "./CadastrarInformaçoes.module.css";
 
 import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
-import { Informacoes, createInformacoes, getInformacoes } from "../../../services/InformacoesService";
+import { Informacoes, updateInformacoes, getInformacoes } from "../../../services/InformacoesService";
 import InformacoesCard from "./InformacoesCard";
 
 
@@ -47,7 +47,7 @@ const CadastrarInformaçoes: React.FC = () => {
 
     const onSubmit = async (values: Informacoes, { resetForm }: { resetForm: () => void }) => {
         try{
-            await createInformacoes(values);
+            await updateInformacoes(values);
             setInformacoes(values);
             console.log(values);
             resetForm();
@@ -62,7 +62,12 @@ const CadastrarInformaçoes: React.FC = () => {
 
     return (
         <div className={styles.formWrapper}>
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+
+            <Formik 
+            initialValues={informacoes} 
+            enableReinitialize={true}
+            validationSchema={validationSchema} 
+            onSubmit={onSubmit}>
                 {({ errors, touched }) => (
                     <Form className={styles.form}>
 
@@ -106,6 +111,13 @@ const CadastrarInformaçoes: React.FC = () => {
             </Formik>
 
             <InformacoesCard informacoes={informacoes}/>
+
+            <button 
+                type="button" 
+                // onClick={handleDelete}
+                 className={`${styles.button} ${styles.buttonDelete}`}>
+                Deletar
+            </button>
 
         </div>
     );

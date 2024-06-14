@@ -9,7 +9,7 @@ export interface Informacoes {
     imagem?: string;
 }
 
-export async function createInformacoes(Informacoes: Informacoes): Promise<Informacoes> {
+export async function updateInformacoes(Informacoes: Informacoes): Promise<Informacoes> {
 
     const response = await Api.put<Informacoes>('/informacoes/1', Informacoes);
     return response.data
@@ -19,3 +19,4 @@ export async function getInformacoes(): Promise<Informacoes>{
     const response = await Api.get<Informacoes>('/informacoes/1');
     return response.data;
 }
+
