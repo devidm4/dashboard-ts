@@ -13,11 +13,11 @@ import InformacoesCard from "./InformacoesCard";
 
 const CadastrarInformaçoes: React.FC = () => {
 
-    const [informacoes , setInformacoes] = useState<Informacoes>({} as Informacoes)
+    const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes)
 
     const initialValues: Informacoes = {
         id: 1,
-        foto: "",   
+        foto: "",
         nome: "",
         cargo: "",
         resumo: "",
@@ -40,22 +40,33 @@ const CadastrarInformaçoes: React.FC = () => {
         }
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         fetchInformacoes();
     }, []);
-    
+
 
     const onSubmit = async (values: Informacoes, { resetForm }: { resetForm: () => void }) => {
-        try{
+        try {
             await updateInformacoes(values);
             setInformacoes(values);
             console.log(values);
             resetForm();
             alert("Formulário enviado com sucesso!");
 
-        }catch (error) {
+        } catch (error) {
             console.error('erro ao enviar formulário:', error);
             alert('Ocorreu um erro ao enviar o formulário. Tente novamente.');
+        }
+    };
+
+    const handleDelete = async () => {
+        try{
+            await updateInformacoes(initialValues);
+            setInformacoes(initialValues);
+            alert("Informação excluída com sucesso!");
+        } catch (error) {
+            console.error('Erro ao excluir informação:', error);
+            alert('Ocorreu um erro ao excluir a informação. Tente novamente.');
         }
     };
 
@@ -63,11 +74,11 @@ const CadastrarInformaçoes: React.FC = () => {
     return (
         <div className={styles.formWrapper}>
 
-            <Formik 
-            initialValues={informacoes} 
-            enableReinitialize={true}
-            validationSchema={validationSchema} 
-            onSubmit={onSubmit}>
+            <Formik
+                initialValues={informacoes}
+                enableReinitialize={true}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}>
                 {({ errors, touched }) => (
                     <Form className={styles.form}>
 
@@ -110,15 +121,21 @@ const CadastrarInformaçoes: React.FC = () => {
                 )}
             </Formik>
 
-            <InformacoesCard informacoes={informacoes}/>
-
-            <button 
-                type="button" 
-                // onClick={handleDelete}
-                 className={`${styles.button} ${styles.buttonDelete}`}>
-                Deletar
-            </button>
-
+             
+            {informacoes &&
+            Object.entries(informacoes).some(
+                ([key, value]) => key !== "id" && value.trim() !==""
+                ) && (
+            <div className={styles.cardContainer}>
+                <InformacoesCard informacoes={informacoes} />
+                <button
+                    type="button"
+                    onClick={handleDelete}
+                    className={`${styles.button} ${styles.deleteButton}`}>
+                    Deletar
+                </button>
+            </div>
+            )}
         </div>
     );
 };

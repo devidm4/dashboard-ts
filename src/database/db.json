@@ -1,13 +1,30 @@
 {
   "informacoes": [
     {
-      "id": "1",
       "foto": "https://github.com/devidm4.png",
       "nome": "Devid Matheus ",
       "cargo": "Licenciando Matemática.",
-      "resumo": "Nome:Devid Matheus Nascimento Silva.\n\nEscolaridade completa, cursando licenciatura em Matemática, cursando programação pela Usina Academy e disposto a resolver o seu problema."
+      "resumo": "Nome:Devid Matheus Nascimento Silva.Escolaridade completa, cursando licenciatura em Matemática,cursando programação pela Usina Academy e disposto a resolver o seu problema.",
+      "id": "1"
     }
   ],
-  "experiencias": [],
+  "experiencias": [
+    {
+      "id": 0,
+      "titulo": "sfsfsf",
+      "tipo": "",
+      "descricao": "fsessvs",
+      "anoInicio": "2222",
+      "anoFim": "2222"
+    },
+    {
+      "id": 0,
+      "titulo": "q3qwd",
+      "tipo": "",
+      "descricao": "zddz",
+      "anoInicio": "222",
+      "anoFim": "222"
+    }
+  ],
   "portfolio": []
 }

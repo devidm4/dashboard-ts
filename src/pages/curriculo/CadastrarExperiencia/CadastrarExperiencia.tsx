@@ -10,19 +10,14 @@ import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
 import Select from "../../../components/forms/Select";
 
-
-interface FormValues {
-    titulo: string;
-    descricao: string;
-    anoInicio: string;
-    anoFim: string;
-}
-
+import { Experiencia, createExperiencia } from "../../../services/experienciaService";
 
 const CadastrarExperiencia: React.FC = () => {
 
-    const initialValues: FormValues = {
+    const initialValues: Experiencia = {
+        id: 0,
         titulo: "",
+        tipo: "",
         descricao: "",
         anoInicio: "",
         anoFim: "",
@@ -35,11 +30,19 @@ const CadastrarExperiencia: React.FC = () => {
         anoFim: Yup.number().required('campo obrigatório').typeError('deve ser um número'),
     });
 
-    const onSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-        // Lógica de evnio para backend
-        console.log(values);
-        resetForm();
-        alert("Formulário enviado com sucesso!");
+    const onSubmit = (values: Experiencia, { resetForm }: { resetForm: () => void }) => {
+
+        try {
+            createExperiencia(values);
+            console.log(values);
+            resetForm();
+            alert("Formulário enviado com sucesso!");
+        } catch (error) {
+            console.error('erro ao enviar formulário:');
+            alert('Ocorreu um erro ao enviar o formulário. Tente novamente!');
+        }
+
+
     }
 
     return (
