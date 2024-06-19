@@ -11,7 +11,7 @@
   "experiencias": [
     {
       "id": "1",
-      "titulo": "Ensino médio.",
+      "titulo": "Ensino médio",
       "tipo": "Profissional",
       "descricao": "fsgbdfb",
       "anoInicio": "2018 ",
@@ -22,6 +22,14 @@
       "titulo": "matheus sd dzczd",
       "tipo": "Profissional",
       "descricao": "zx z",
+      "anoInicio": "2018 ",
+      "anoFim": " 2022"
+    },
+    {
+      "id": "3",
+      "titulo": "Ensino médio",
+      "tipo": "Academico",
+      "descricao": "acas",
       "anoInicio": "2018 ",
       "anoFim": " 2022"
     }
