@@ -4,7 +4,7 @@
       "id": "1",
       "foto": "https://github.com/devidm4.png",
       "nome": "Devid Matheus ",
-      "cargo": "Licenciando Matemática.",
+      "cargo": "Desenvolvedor de Software",
       "resumo": "Nome:Devid Matheus Nascimento Silva.\n\nEscolaridade completa, cursando licenciatura em Matemática, cursando programação pela Usina Academy e disposto a resolver o seu problema."
     }
   ],
@@ -12,26 +12,26 @@
     {
       "id": "1",
       "titulo": "Ensino médio",
-      "tipo": "Profissional",
-      "descricao": "fsgbdfb",
+      "tipo": "Academico",
+      "descricao": "",
       "anoInicio": "2018 ",
       "anoFim": " 2022"
     },
     {
       "id": "2",
-      "titulo": "matheus sd dzczd",
+      "titulo": "Tutor de matemática",
       "tipo": "Profissional",
-      "descricao": "zx z",
-      "anoInicio": "2018 ",
-      "anoFim": " 2022"
+      "descricao": "",
+      "anoInicio": "2022",
+      "anoFim": "2024"
     },
     {
       "id": "3",
-      "titulo": "Ensino médio",
+      "titulo": "Informática na Infoway",
       "tipo": "Academico",
-      "descricao": "acas",
-      "anoInicio": "2018 ",
-      "anoFim": " 2022"
+      "descricao": "",
+      "anoInicio": "2017",
+      "anoFim": "2018"
     }
   ],
   "portfolio": []
