@@ -50,6 +50,15 @@ const Sidebar: React.FC = () => {
                     </li>
                 </ul>
 
+                <ul>
+                    <li>
+                        <NavLink to="/login" >
+                            <h3>Logout</h3>
+                        </NavLink>
+                    </li>
+                </ul>
+
+
             </nav>
         </div>
     );
