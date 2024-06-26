@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import Input from "../../components/forms/Input";
 import { useNavigate } from "react-router-dom";
+import { login as loginService } from "../../services/authService";
+import { useAuth } from "../../contexts/AuthContext";
 
 
 interface LoginValues {
@@ -29,13 +31,17 @@ const validationSchema = Yup.object().shape({
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const onSubmit = async (values: LoginValues) => {
         try {
+         const user = await loginService(values.email, values.password);
+            login(user)
             navigate("/");
             console.log(values);
         } catch (error) {
             console.log(error);
+            alert("Email ou senha inválido");
         }
     }
 

@@ -1,4 +1,12 @@
 {
+  "usuarios": [
+    {
+      "id": "1",
+      "email": "devidmatheus@076gmail.com",
+      "password": "123456"
+    }
+  ],
+  
   "informacoes": [
     {
       "id": "1",
