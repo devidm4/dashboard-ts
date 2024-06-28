@@ -3,9 +3,11 @@ import React from "react";
 import styles from "./CadastrarPortfolio.module.css";
 
 import * as Yup from "yup";
-import { Formik, Form } from "formik";
 
 import Input from "../../../components/forms/Input";
+import Form from "../../../components/forms/Form";
+import Title from "../../../components/common/Title";
+import Button from "../../../components/common/Button";
 
 interface FormValues{
     link: string;
@@ -37,14 +39,14 @@ const CadastrarPortfolio: React.FC = () => {
 
     return (    
         <div className={styles.formWrapper}>
-            <Formik
+            <Form
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
             >
                 {({ errors, touched }) => (
-                    <Form className={styles.form}>
-                        <h2 className={styles.title}>Cadastro de Portfolio</h2>
+                    <>
+                        <Title>Cadastro de Portfolio</Title>
 
                         <Input
                             name="link"
@@ -70,12 +72,13 @@ const CadastrarPortfolio: React.FC = () => {
                             touched={touched.title}
                         />
 
-                        <button type="submit" className={styles.button}>Cadastrar</button>
-                    </Form>
+
+                        <Button type="submit">Cadastrar</Button>
+                    </>
  
                     
                 )}
-            </Formik>
+            </Form>
                         
 
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Formik, Form, } from "formik";
+
 import * as Yup from "yup";
 
 import styles from "./CadastrarInformaçoes.module.css";
@@ -9,6 +9,9 @@ import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
 import { Informacoes, updateInformacoes, getInformacoes } from "../../../services/InformacoesService";
 import InformacoesCard from "./InformacoesCard";
+import Button from "../../../components/common/Button";
+import Form from "../../../components/forms/Form";
+import Title from "../../../components/common/Title";
 
 
 const CadastrarInformaçoes: React.FC = () => {
@@ -74,15 +77,16 @@ const CadastrarInformaçoes: React.FC = () => {
     return (
         <div className={styles.formWrapper}>
 
-            <Formik
+            <Form
                 initialValues={informacoes}
                 enableReinitialize={true}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}>
-                {({ errors, touched }) => (
-                    <Form className={styles.form}>
 
-                        <h2 className={styles.title}>Cadastrar Informações</h2>
+                {({ errors, touched }) => (
+                    <>
+
+                        <Title>Cadastrar Informações</Title>
 
                         <Input
                             name="foto"
@@ -115,11 +119,11 @@ const CadastrarInformaçoes: React.FC = () => {
                             touched={touched.resumo}
                         />
 
-                        <button type="submit" className={styles.button}>Salvar</button>
+                        <Button type="submit">Salvat</Button>
 
-                    </Form>
+                    </>
                 )}
-            </Formik>
+            </Form>
 
              
             {informacoes &&
@@ -128,12 +132,8 @@ const CadastrarInformaçoes: React.FC = () => {
                 ) && (
             <div className={styles.cardContainer}>
                 <InformacoesCard informacoes={informacoes} />
-                <button
-                    type="button"
-                    onClick={handleDelete}
-                    className={`${styles.button} ${styles.deleteButton}`}>
-                    Deletar
-                </button>
+    
+                <Button onClick={handleDelete} red >Deletar</Button>
             </div>
             )}
         </div>

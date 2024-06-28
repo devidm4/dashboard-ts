@@ -16,7 +16,6 @@ interface FormProps <T>{
 
 const Form = <T extends FormikValues>({ initialValues, validationSchema, onSubmit, children }: FormProps<T>) => {
     return (
-        <div className={styles.fromWrapper}>
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -28,7 +27,6 @@ const Form = <T extends FormikValues>({ initialValues, validationSchema, onSubmi
             </FormikForm>
             )} 
         </Formik>
-        </div>
     );
 };
 

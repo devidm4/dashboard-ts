@@ -6,13 +6,12 @@
       "password": "123456"
     }
   ],
-  
   "informacoes": [
     {
       "id": "1",
       "foto": "https://github.com/devidm4.png",
       "nome": "Devid Matheus ",
-      "cargo": "Desenvolvedor de Software",
+      "cargo": "Licenciando Matemática.",
       "resumo": "Nome:Devid Matheus Nascimento Silva.\n\nEscolaridade completa, cursando licenciatura em Matemática, cursando programação pela Usina Academy e disposto a resolver o seu problema."
     }
   ],

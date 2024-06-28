@@ -4,15 +4,18 @@ import * as Yup from "yup";
 
 import styles from "./CadastrarExperiencia.module.css";
 
-import { Formik, Form } from "formik";
+
 
 import Input from "../../../components/forms/Input";
 import Textarea from "../../../components/forms/Textarea";
 import Select from "../../../components/forms/Select";
+import Form from "../../../components/forms/Form";
 
 import { Experiencia, createOrUpdateExperiencia } from "../../../services/experienciaService";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../../../components/common/Button";
+import Title from "../../../components/common/Title";
 
 const CadastrarExperiencia: React.FC = () => {
 
@@ -54,15 +57,15 @@ const CadastrarExperiencia: React.FC = () => {
 
     return (
         <div className={styles.formWrapper}>
-            <Formik
+            <Form
                 initialValues={experiencia || initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
             >
 
                 {({ errors, touched }) => (
-                    <Form className={styles.form}>
-                        <h1 className={styles.title}>Cadastrar Experiência</h1>
+                    <>
+                        <Title>Cadastro de Experiência</Title>
                         <Input
                             name="titulo"
                             label="Título"
@@ -103,10 +106,10 @@ const CadastrarExperiencia: React.FC = () => {
                         />
 
 
-                        <button type="submit" className={styles.button}>Salvar</button>
-                    </Form>
+                        <Button type="submit">Salvar</Button>
+                    </>
                 )}
-            </Formik>
+            </Form>
         </div>
     )
 };

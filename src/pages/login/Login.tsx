@@ -3,11 +3,15 @@ import React from "react";
 import styles from "./Login.module.css";
 
 import * as Yup from "yup";
-import { Formik, Form } from "formik";
+// import { Formik, Form } from "formik";
 import Input from "../../components/forms/Input";
 import { useNavigate } from "react-router-dom";
 import { login as loginService } from "../../services/authService";
 import { useAuth } from "../../contexts/AuthContext";
+
+import Form from "../../components/forms/Form";
+import Button from "../../components/common/Button";
+import Title from "../../components/common/Title";
 
 
 interface LoginValues {
@@ -35,7 +39,7 @@ const Login: React.FC = () => {
 
     const onSubmit = async (values: LoginValues) => {
         try {
-         const user = await loginService(values.email, values.password);
+            const user = await loginService(values.email, values.password);
             login(user)
             navigate("/");
             console.log(values);
@@ -47,39 +51,41 @@ const Login: React.FC = () => {
 
     return (
         <div className={styles.loginWrapper}>
-            <div className={styles.fromWrapper}>
-                <Formik
-                    initialValues={inicialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit}
-                >
-                    {({ errors, touched }) => (
-                        <Form className={styles.form}>
-                            <h1 className={styles.title}>MEU SITE PESSOAL</h1>
 
-                            <Input
-                                label="Email"
-                                name="email"
-                                type="email"
-                                errors={errors.email}
-                                touched={touched.email}
-                            />
+            <Form
+                initialValues={inicialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+            >
+                {({ errors, touched }) => (
+                    <>
 
-                            <Input
-                                label="Password"
-                                name="password"
-                                type="password"
-                                errors={errors.password}
-                                touched={touched.password}
-                            />
+                        <Title>MEU SITE PESSOAL</Title>
 
-                            <button type="submit" className={styles.button}>
-                                Login
-                            </button>
-                        </Form>
-                    )}
-                </Formik>
-            </div>
+                        <Input
+                            label="Email"
+                            name="email"
+                            type="email"
+                            errors={errors.email}
+                            touched={touched.email}
+                        />
+
+                        <Input
+                            label="Password"
+                            name="password"
+                            type="password"
+                            errors={errors.password}
+                            touched={touched.password}
+                        />
+
+                    
+                        <Button  type="submit" >
+                            Cadastrar
+                        </Button>
+                    </>
+                )}
+            </Form>
+
         </div>
     );
 };
