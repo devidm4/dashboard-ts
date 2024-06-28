@@ -33,10 +33,12 @@ const CadastrarExperiencia: React.FC = () => {
     };
 
     const validationSchema = Yup.object().shape({
+        id: Yup.string(),
+        tipo: Yup.string().required('campo obrigatório'),
         titulo: Yup.string().required('campo obrigatório'),
-        // descricao: Yup.string().required('campo obrigatório'),
-        anoInicio: Yup.number().required('campo obrigatório').typeError('deve ser um número'),
-        anoFim: Yup.number().required('campo obrigatório').typeError('deve ser um número'),
+        descricao: Yup.string().required('campo obrigatório'),
+        anoInicio: Yup.string().required('campo obrigatório').typeError('deve ser um número'),
+        anoFim: Yup.string().required('campo obrigatório').typeError('deve ser um número'),
     });
 
     const onSubmit = async (values: Experiencia, { resetForm }: { resetForm: () => void }) => {

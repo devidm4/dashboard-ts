@@ -19,7 +19,7 @@ const CadastrarInformaçoes: React.FC = () => {
     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes)
 
     const initialValues: Informacoes = {
-        id: 1,
+        id: 0,
         foto: "",
         nome: "",
         cargo: "",
@@ -27,6 +27,7 @@ const CadastrarInformaçoes: React.FC = () => {
     };
 
     const validationSchema = Yup.object().shape({
+        id: Yup.number(),
         foto: Yup.string().required('campo obrigatório'),
         nome: Yup.string().required('campo obrigatório'),
         cargo: Yup.string().required('campo obrigatório'),
@@ -79,7 +80,6 @@ const CadastrarInformaçoes: React.FC = () => {
 
             <Form
                 initialValues={informacoes}
-                enableReinitialize={true}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}>
 

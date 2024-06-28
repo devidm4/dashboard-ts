@@ -22,7 +22,6 @@ const initialValues: FormValues = {
 };
 
 const validationSchema = Yup.object().shape({
-
     link: Yup.string().required("Campo obrigatório"),
     imagem: Yup.string().required("Campo obrigatório"),
     title: Yup.string().required("Campo obrigatório")
