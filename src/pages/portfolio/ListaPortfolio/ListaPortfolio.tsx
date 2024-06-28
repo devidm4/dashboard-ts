@@ -12,7 +12,7 @@ interface portfolio {
 
 const ListaPortfolio: React.FC = () => {
 
-const [portfolio, setPortfolio] = useState<portfolio[]>([
+const [portfolio] = useState<portfolio[]>([
     {
         titulo: "Projeto 1",
         imagem: "https://via.placeholder.com/150",
@@ -32,10 +32,12 @@ const [portfolio, setPortfolio] = useState<portfolio[]>([
 
 const handleEdit = (index: number) => {
     // Lógica para editar o item do portfolio
+    console.log(index)
 }
 
 const handleDelete = (index: number) => {
     // Lógica para excluir o item do portfolio
+    console.log(index)
 }
 
     return (
