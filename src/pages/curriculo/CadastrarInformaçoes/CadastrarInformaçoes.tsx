@@ -119,7 +119,7 @@ const CadastrarInformaçoes: React.FC = () => {
                             touched={touched.resumo}
                         />
 
-                        <Button type="submit">Salvat</Button>
+                        <Button type="submit">Salvar</Button>
 
                     </>
                 )}
