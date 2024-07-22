@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const url = import .meta.env.VITE_API_URL
+
 const Api = axios.create({
-    baseURL: 'https://site-pessoal-api-5r8b.onrender.com/api',
+    baseURL: url
 });
 
 export default Api;
